@@ -20,7 +20,9 @@ The following figure compares a normal retina image to abnormal retina image.  C
 </p>  
 
 
-The following shows the basic configuration of CNN used in this work. There are two convolutional layers and one dense layer. The sensitivity of the accuracy to the number of neurons in the dense layer, the learning rate and dropout is explored.
+The following shows the basic configuration of CNN used in this work. There are two convolutional layers and one dense layer. The sensitivity of the accuracy to the learning rate, the number of neurons in the dense layer, the number of filters, the dropout rate and data augmentation is explored.
+
+<br>
 
 ![](images/keras_CNN_configuration.png)
 
