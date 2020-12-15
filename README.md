@@ -35,11 +35,16 @@ The following shows the sensitivity to learning rate.
 
 <br>
 
+<p align="justify">
+
 The number of neurons along with the number of hidden layers quantify the capacity of the neural network. Higher the number of neurons (and hidden layers) higher the number of free (tunable) parameters of the neural network model. Given a fixed amount of training data, higher number of parameters tend to overfit the training data. An overfit model tends to perform very well on the training data but fails miserably on the test data. The generalization error of such models is high. An overfit model has low bias and high variance.
+</p>  
 
 <br>
 
+<p align="justify">
 The following figure shows the sensitivity of the accuracy to the number of neurons. For the configuration with 8 and 16 neurons there are too few neurons for the model to fit to the observations. Hence the accuracy is too low. The model does not have enough capacity (i.e. flexibility)  to fit the data. The low number of neurons result in an underfit model. The high bias leads to a low accuracy (0.5). The other extreme is realized with N = 128. The training accuracy is close to 1 while the validation accuracy is ~ 0.88. The gap of ~0.12 between the training and validation accuracy quantifies the overfitting. Therefore the optimal value of N is between 16 and 128. Decreasing the number of neurons to 32 gives a best result in that the overfitting decreases. This is quantified by the decrease in gap between the training and validation accuracy. The training accuracy is 0.92 and validation accuracy is 0.88. Consquently N = 32 is the best choice for this problem. The overfitting is not eliminated completely with N = 32. Decreasing N from 128 to 32 decreases the variance of the model. The experiments that follow use N = 32.
+</p>  
 
 <p align="center">
 <img width="500" height="300" src="images/number_neurons_5.png"> 
@@ -53,7 +58,9 @@ The following explores the sensitivity of accuracy to the number of filters. The
 
 <br>
 
+<p align="justify">
 The issue of overfitting in neural networks can be addressed with another technique known as *dropout*. In this technique a particular percentage of outputs from  a layer are randomly switched off (i.e. dropped out). For example a drop out rate of 0.5 results in switching off of 50% of the 32 neurons in the dense layer. For each iteration, the particular neurons that are dropped off are chosen randomly. The drop out is applied after the non-linear activation function. However, in case of ReLU applying the drop out before or after the activation function produces the same result. Drop out effectively decreases the capacity of the network. The following figure explores the sensitivity of accuracy to the magnitude of dropout. The drop out rate of 0.7 is the best out of different values used because the gap between training and validation accuracy is minimum.
+</p>  
 
 <br>
 
@@ -62,11 +69,15 @@ The issue of overfitting in neural networks can be addressed with another techni
 </p>
 
 <br>
+<p align="justify">
 So far two different techniques to decrease overfitting were explored. The first one was explicitly decreasing the number of neurons while the second one (drop out) has the effect of decreasing the capacity of the network. These techniques are types of regularization which in general tends to decrease overfitting. Regularization adds a penalty term to the cost function. Regularization is equivalent to using a prior which ensures that the model parameters do not overfit to the data. In case of neural networks the parameters are the weights. Reducing the complexity of the model is one way of regularization. Imposing constraints on the parameters (eg. L1 or L2 regularization) is another way of regularization. This assumes that a fixed amount of data is available and one is supposed to build an optimal model.
+</p>  
 
 <br>
 
+<p align="justify">
 It is possible to decrease overfitting by increasing the amount of data. This data has to be diverse which means that simply replicating existing data may not give good results. However collecting more data is non trivial for many problems. In case of image classification augmentation techniques can be used to increase the amount of data.  This can be achieved by rotating, fliping and shearing the existing images. The following explores the effect of data augmentation on accuracy. It is seen that a drop out of 0.5 combined with more data decreases the gap between training and validation accuracy. On the other hand using augmented data along with drop out of 0.7 leads to too much regularization (higher bias). Consequently both training and validation accuracy decrease to 0.8.
+</p>  
 
 <p align="center">
 <img width="500" height="300" src="images/number_dataaugmentation.png"> 
