@@ -62,6 +62,8 @@ The issue of overfitting in neural networks can be addressed with another techni
 <br>
 So far two different techniques to decrease overfitting were explored. The first one was explicitly decreasing the number of neurons while the second one (drop out) has the effect of decreasing the capacity of the network. These techniques are types of regularization which in general tends to decrease overfitting. Regularization adds a penalty term to the cost function. Regularization is equivalent to using a prior which ensures that the model parameters do not overfit to the data. In case of neural networks the parameters are the weights. Reducing the complexity of the model is one way of regularization. Imposing constraints on the parameters (eg. L1 or L2 regularization) is another way of regularization. This assumes that a fixed amount of data is available and one is supposed to build an optimal model.
 
+<br>
+
 It is possible to decrease overfitting by increasing the amount of data. This data has to be diverse which means that simply replicating existing data may not give good results. However collecting more data is non trivial for many problems. In case of image classification augmentation techniques can be used to increase the amount of data.  This can be achieved by rotating, fliping and shearing the existing images. The following explores the effect of data augmentation on accuracy. It is seen that a drop out of 0.5 combined with more data decreases the gap between training and validation accuracy. On the other hand using augmented data along with drop out of 0.7 leads to too much regularization (higher bias). Consequently both training and validation accuracy decrease to 0.8.
 
 <p align="center">
