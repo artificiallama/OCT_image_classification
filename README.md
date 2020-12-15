@@ -33,7 +33,7 @@ The number of neurons along with the number of hidden layers quantify the capaci
 
 <br>
 
-The following figure shows the sensitivity of the accuracy to the number of neurons. For the configuration with 8 and 16 neurons there are too few neurons for the model to fit to the observations. Hence the accuracy is too low. The model does not have enough capacity (i.e. flexibility)  to fit the data. The low number of neurons result in an underfit model. The high bias leads to a low accuracy (0.5). The other extreme is realized with N = 128. The training accuracy is close to 1 while the validation accuracy is ~ 0.88. The gap of ~0.12 between the training and validation accuracy quantifies the overfitting. Therefore the optimal value of N is between 16 and 128. Decreasing the number of neurons to 32 gives a best result in that the overfitting decreases. This is quantified by the decrease in gap between the training and validation accuracy. The training accuracy is 0.92 and validation accuracy is 0.88. Consquently N = 32 is the best choice for this problem. The overfitting is not eliminated completely with N = 32. Decreasing N from 128 to 32 decreases the variance of the model.
+The following figure shows the sensitivity of the accuracy to the number of neurons. For the configuration with 8 and 16 neurons there are too few neurons for the model to fit to the observations. Hence the accuracy is too low. The model does not have enough capacity (i.e. flexibility)  to fit the data. The low number of neurons result in an underfit model. The high bias leads to a low accuracy (0.5). The other extreme is realized with N = 128. The training accuracy is close to 1 while the validation accuracy is ~ 0.88. The gap of ~0.12 between the training and validation accuracy quantifies the overfitting. Therefore the optimal value of N is between 16 and 128. Decreasing the number of neurons to 32 gives a best result in that the overfitting decreases. This is quantified by the decrease in gap between the training and validation accuracy. The training accuracy is 0.92 and validation accuracy is 0.88. Consquently N = 32 is the best choice for this problem. The overfitting is not eliminated completely with N = 32. Decreasing N from 128 to 32 decreases the variance of the model. The experiments that follow use N = 32.
 
 <p align="center">
 <img width="500" height="300" src="images/number_neurons_5.png"> 
@@ -46,9 +46,7 @@ The following explores the sensitivity of accuracy to the number of filters.
 </p>
 
 
-The issue of overfitting in neural networks can be addressed with another technique known as *dropout*. In this technique a particular percentage of outputs from  a layer are randomly switched off (i.e. dropped out).
-
-The following figure explores the sensitivity of accuracy to the magnitude of dropout.
+The issue of overfitting in neural networks can be addressed with another technique known as *dropout*. In this technique a particular percentage of outputs from  a layer are randomly switched off (i.e. dropped out). For example a drop out rate of 0.5 results in switching off of 50% of the 32 neurons in the dense layer. For each iteration, the particular neurons that are dropped off are chosen randomly. The drop out is applied after the non-linear activation function. However, in case of ReLU applying the drop out before or after the activation function produces the same result. Drop out effectively decreases the capacity of the network. The following figure explores the sensitivity of accuracy to the magnitude of dropout. The drop out rate of 0.7 is the best out of different values used because the gap between training and validation accuracy is minimum.
 
 <p align="center">
 <img width="500" height="300" src="images/number_dropout.png"> 
@@ -70,5 +68,7 @@ Saikat Biswas : How Regularization helps in data overfitting, *medium.com*, 2019
 Srivastava, Nitish & Hinton, Geoffrey & Krizhevsky, Alex & Sutskever, Ilya & Salakhutdinov, Ruslan. (2014). Dropout: A Simple Way to Prevent Neural Networks from Overfitting. Journal of Machine Learning Research. 15. 1929-1958. 
 
 https://machinelearningmastery.com/dropout-for-regularizing-deep-neural-networks/
+
+https://sebastianraschka.com/faq/docs/dropout-activation.html#:~:text=Typically%2C%20dropout%20is%20applied%20after,on%20the%20particular%20code%20implementation.
 
 
