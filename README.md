@@ -57,3 +57,6 @@ The following explores the effect of data augmentation on accuracy.
 https://towardsdatascience.com/balancing-the-regularization-effect-of-data-augmentation-eb551be48374
 
 https://stats.stackexchange.com/questions/295383/why-is-data-augmentation-classified-as-a-type-of-regularization
+
+Saikat Biswas : How Regularization helps in data overfitting, *medium.com*, 2019.
+
