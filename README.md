@@ -31,7 +31,9 @@ The following shows the sensitivity to learning rate.
 <br>
 The number of neurons along with the number of hidden layers quantify the capacity of the neural network. Higher the number of neurons (and hidden layers) higher the number of free (tunable) parameters of the neural network model. Given a fixed amount of training data, higher number of parameters tend to overfit the training data. An overfit model tends to perform very well on the training data but fails miserably on the test data. The generalization error of such models is high. An overfit model has low bias and high variance.
 
-The following figure shows the sensitivity of the accuracy to the number of neurons. For the configuration with 8 and 16 neurons there are too few neurons for the model to fit to the observations. Hence the accuracy is too low. The model does not have enough capacity (i.e. flexibility)  to fit the data. The low number of neurons result in an underfit model. The high bias results in a low accuracy (0.5). The other extreme is realized with N = 128. The training accuracy is close to 1 while the validation accuracy is ~ 0.88. The gap of ~0.12 between the training and validation accuracy quantifies the overfitting. Therefore the optimal value of N is between 16 and 128. Decreasing the number of neurons to 32 gives a best result in that the overfitting decreases. This is quantified by the decrease in gap between the training and validation accuracy. The training accuracy is 0.92 and validation accuracy is 0.88. Consquently N = 32 is the best choice for this problem. The overfitting is not eliminated completely with N = 32. Decreasing N from 128 to 32 decreases the variance of the model.
+<br>
+
+The following figure shows the sensitivity of the accuracy to the number of neurons. For the configuration with 8 and 16 neurons there are too few neurons for the model to fit to the observations. Hence the accuracy is too low. The model does not have enough capacity (i.e. flexibility)  to fit the data. The low number of neurons result in an underfit model. The high bias leads to a low accuracy (0.5). The other extreme is realized with N = 128. The training accuracy is close to 1 while the validation accuracy is ~ 0.88. The gap of ~0.12 between the training and validation accuracy quantifies the overfitting. Therefore the optimal value of N is between 16 and 128. Decreasing the number of neurons to 32 gives a best result in that the overfitting decreases. This is quantified by the decrease in gap between the training and validation accuracy. The training accuracy is 0.92 and validation accuracy is 0.88. Consquently N = 32 is the best choice for this problem. The overfitting is not eliminated completely with N = 32. Decreasing N from 128 to 32 decreases the variance of the model.
 
 <p align="center">
 <img width="500" height="300" src="images/number_neurons_5.png"> 
@@ -43,7 +45,10 @@ The following explores the sensitivity of accuracy to the number of filters.
 <img width="500" height="300" src="images/number_filters.png"> 
 </p>
 
-The following explores the sensitivity of accuracy to the magnitude of dropout.
+
+The issue of overfitting in neural networks can be addressed with another technique known as *dropout*. In this technique a particular percentage of outputs from  a layer are randomly switched off (i.e. dropped out).
+
+The following figure explores the sensitivity of accuracy to the magnitude of dropout.
 
 <p align="center">
 <img width="500" height="300" src="images/number_dropout.png"> 
@@ -61,4 +66,9 @@ https://towardsdatascience.com/balancing-the-regularization-effect-of-data-augme
 https://stats.stackexchange.com/questions/295383/why-is-data-augmentation-classified-as-a-type-of-regularization
 
 Saikat Biswas : How Regularization helps in data overfitting, *medium.com*, 2019.
+
+Srivastava, Nitish & Hinton, Geoffrey & Krizhevsky, Alex & Sutskever, Ilya & Salakhutdinov, Ruslan. (2014). Dropout: A Simple Way to Prevent Neural Networks from Overfitting. Journal of Machine Learning Research. 15. 1929-1958. 
+
+https://machinelearningmastery.com/dropout-for-regularizing-deep-neural-networks/
+
 
