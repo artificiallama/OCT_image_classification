@@ -32,14 +32,13 @@ The following shows the sensitivity to learning rate.
 The number of neurons along with the number of hidden layers quantify the capacity of the neural network. Higher the number of neurons (and hidden layers) higher the number of free (tunable) parameters of the neural network model. Given a fixed amount of training data, higher number of parameters tend to overfit the training data. An overfit model tends to perform very well on the training data but fails miserably on the test data. The generalization error of such models is high. An overfit model has low bias and high variance.
 
 <br>
-
 The following figure shows the sensitivity of the accuracy to the number of neurons. For the configuration with 8 and 16 neurons there are too few neurons for the model to fit to the observations. Hence the accuracy is too low. The model does not have enough capacity (i.e. flexibility)  to fit the data. The low number of neurons result in an underfit model. The high bias leads to a low accuracy (0.5). The other extreme is realized with N = 128. The training accuracy is close to 1 while the validation accuracy is ~ 0.88. The gap of ~0.12 between the training and validation accuracy quantifies the overfitting. Therefore the optimal value of N is between 16 and 128. Decreasing the number of neurons to 32 gives a best result in that the overfitting decreases. This is quantified by the decrease in gap between the training and validation accuracy. The training accuracy is 0.92 and validation accuracy is 0.88. Consquently N = 32 is the best choice for this problem. The overfitting is not eliminated completely with N = 32. Decreasing N from 128 to 32 decreases the variance of the model. The experiments that follow use N = 32.
 
 <p align="center">
 <img width="500" height="300" src="images/number_neurons_5.png"> 
 </p>  
 
-The following explores the sensitivity of accuracy to the number of filters.
+The following explores the sensitivity of accuracy to the number of filters. The choice of (32,64) is better because the overfitting is less accute.
 
 <p align="center">
 <img width="500" height="300" src="images/number_filters.png"> 
@@ -52,11 +51,16 @@ The issue of overfitting in neural networks can be addressed with another techni
 <img width="500" height="300" src="images/number_dropout.png"> 
 </p>
 
-The following explores the effect of data augmentation on accuracy.
+<br>
+So far two different techniques to decrease overfitting were explored. The first one was explicitly decreasing the number of neurons while the second one (drop out) has the effect of decreasing the capacity of the network. These techniques are types of regularization which in general tends to decrease overfitting. Regularization adds a penalty term to the cost function. Regularization is equivalent to using a prior which ensures that the model parameters do not overfit to the data. In case of neural networks the parameters are the weights. Reducing the complexity of the model is one way of regularization. Imposing constraints on the parameters (eg. L1 or L2 regularization) is another way of regularization. This assumes that a fixed amount of data is available and one is supposed to build an optimal model.
+
+It is possible to decrease overfitting by increasing the amount of data. This data has to be diverse which means that simply replicating existing data may not give good results. However collecting more data is non trivial for many problems. In case of image classification augmentation techniques can be used to increase the amount of data.  This can be achieved by rotating, fliping and shearing the existing images. The following explores the effect of data augmentation on accuracy. It is seen that a drop out of 0.5 combined with more data decreases the gap between training and validation accuracy. On the other hand using augmented data along with drop out of 0.7 leads to too much regularization (higher bias). Consequently both training and validation accuracy decrease to 0.8.
 
 <p align="center">
 <img width="500" height="300" src="images/number_dataaugmentation.png"> 
 </p>
+
+There is a debate as to whether increasing the amount of data should be called regularization. What is clear though is that increasing the amount of data leads to decrease in overfit.
 
 # References
 https://towardsdatascience.com/balancing-the-regularization-effect-of-data-augmentation-eb551be48374
@@ -64,6 +68,8 @@ https://towardsdatascience.com/balancing-the-regularization-effect-of-data-augme
 https://stats.stackexchange.com/questions/295383/why-is-data-augmentation-classified-as-a-type-of-regularization
 
 Saikat Biswas : How Regularization helps in data overfitting, *medium.com*, 2019.
+
+https://www.analyticsvidhya.com/blog/2018/04/fundamentals-deep-learning-regularization-techniques/
 
 Srivastava, Nitish & Hinton, Geoffrey & Krizhevsky, Alex & Sutskever, Ilya & Salakhutdinov, Ruslan. (2014). Dropout: A Simple Way to Prevent Neural Networks from Overfitting. Journal of Machine Learning Research. 15. 1929-1958. 
 
